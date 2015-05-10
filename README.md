@@ -4,6 +4,7 @@ Program I created a while back to open Archeage Divine Gifts, I eventually tacke
 
 
 Used heavily on Windows 7
+
 Tested a bit on Windows 8, though it seems to not always interpret clicks in 8 (This might be the laptop I was using)
 
 # Compile Notes
