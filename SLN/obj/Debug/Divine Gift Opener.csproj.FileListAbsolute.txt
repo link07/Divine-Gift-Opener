@@ -1,0 +1,14 @@
+C:\Users\Link\Desktop\Divine Gift Opener\bin\Debug\Divine Gift Opener.exe.config
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.csprojResolveAssemblyReference.cache
+C:\Users\Link\Desktop\Divine Gift Opener\bin\Debug\Divine Gift Opener.exe
+C:\Users\Link\Desktop\Divine Gift Opener\bin\Debug\Divine Gift Opener.pdb
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.exe
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.pdb
+C:\Users\Link\Desktop\Divine Gift Opener\bin\Debug\Divine Gift Opener.exe.manifest
+C:\Users\Link\Desktop\Divine Gift Opener\bin\Debug\Divine Gift Opener.application
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.TrustInfo.xml
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.exe.manifest
+C:\Users\Link\Desktop\Divine Gift Opener\obj\Debug\Divine Gift Opener.application
+E:\Programing_Stuff\GIT\Divine-Gift-Opener\Visual Studio 2013 SLN\bin\Debug\Divine Gift Opener.exe.config
+E:\Programing_Stuff\GIT\Divine-Gift-Opener\Visual Studio 2013 SLN\obj\Debug\Divine Gift Opener.exe
+E:\Programing_Stuff\GIT\Divine-Gift-Opener\Visual Studio 2013 SLN\obj\Debug\Divine Gift Opener.pdb
