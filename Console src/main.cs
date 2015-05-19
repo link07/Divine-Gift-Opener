@@ -1,5 +1,5 @@
 ﻿/*---------------------------------------------------------------------------------------------------------------------------------------
- * Program:       Divine Gift Opener v 2.0.3
+ * Program:       Interval Click v2.1
  * Author:        Tyler aka Link aka Zafar
  *
  * Description:
@@ -57,6 +57,7 @@ namespace divineGiftOpener
 {
     class Program
     {
+
         // Position of box on the main 1080p monitor X: 28, Y: 984
 
 
@@ -70,7 +71,7 @@ namespace divineGiftOpener
         static int Main()
         {
             // Set Title of Console /// Try to find a better way?
-            Console.Title = "Zafar's Divine Gift Collector v2.0.3";
+            Console.Title = "Interval Click v2.1 by Zafar / Link";
 
             // Setup variables
             const int xDefault = 28, yDefault = 984; // Default spot of divine gift button for 1080p screen
@@ -79,7 +80,7 @@ namespace divineGiftOpener
             bool cont = false, exit = false; // Continue the program, or exit the program
 
             // Intro + open program
-            Console.WriteLine("Divine Gift Opener v2.0.3 written by: Zafar / Link");
+            Console.WriteLine("Interval Click v2.1 written by: Zafar / Link");
             Console.WriteLine("");
             Console.WriteLine("Primarily for opening divine gifts in archeage in 1080p,");
             Console.WriteLine("but it can be customized to do other things");
@@ -95,7 +96,6 @@ namespace divineGiftOpener
             {
                 return 1;
             }
-
 
 
             // Create thread with multiple variables being passed (original found in credits)
@@ -123,7 +123,6 @@ namespace divineGiftOpener
                     return 0;
                 }
             }
-
             return 0;
         }
         #endregion

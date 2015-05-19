@@ -1,15 +1,26 @@
-﻿using System;
+﻿/*---------------------------------------------------------------------------------------------------------------------------------------
+ * Program:       Windows Click
+ * Author:        Tyler aka Link aka Zafar
+ *
+ * Description:
+ * Some windows click handling, primarely where the mouse is, and allowing it be moved and clicked elsewhere
+ * 
+ * 
+ * Version History:
+ * v1.0 on 5/19/2015 : Split from my "Open Divine Gifts" program, which was then renamed to "Interval Click"
+ *                  
+ * Compile Note: Requires adding "System.Drawing" and "System.Windows.Forms" to resources
+ * --------------------------------------------------------------------------------------------------------------------------------------*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-// Added
 using System.Windows.Forms;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace windowsClick
 {
@@ -38,6 +49,13 @@ namespace windowsClick
             }
         }
 
+        /// <summary>
+        /// Clicks every x minutes until thread is killed
+        /// </summary>
+        /// <param name="xPos">Where to click</param>
+        /// <param name="yPos">Where to click</param>
+        /// <param name="button">Which button to click (0 for left, 1 for right)</param>
+        /// <param name="interval">How often in minutes to click</param>
         public static void clickInterval(int xPos, int yPos, int button, double interval)
         {
             while (true)
@@ -80,8 +98,6 @@ namespace windowsClick
             RIGHTDOWN = 0x00000008,
             RIGHTUP = 0x00000010
         }
-
-
         #endregion
 
 
