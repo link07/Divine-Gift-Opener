@@ -1,5 +1,5 @@
-﻿/*---------------------------------------------------------------------------------------------------------------------------------------
- * Program:       Divine Gift Opener v 2.0.3
+/*---------------------------------------------------------------------------------------------------------------------------------------
+ * Program:       Divine Gift Opener v 2.0.4.1
  * Author:        Tyler aka Link aka Zafar
  *
  * Description:
@@ -77,7 +77,7 @@ namespace divineGiftOpener
             bool cont = false, exit = false; // Continue the program, or exit the program
 
             // Intro + open program
-            Console.WriteLine("Divine Gift Opener v2.0.3 written by: Zafar / Link");
+            Console.WriteLine("Divine Gift Opener v2.0.4.1 written by: Zafar / Link");
             Console.WriteLine("");
             Console.WriteLine("Primarily for opening divine gifts in archeage in 1080p,");
             Console.WriteLine("but it can be customized to do other things");
