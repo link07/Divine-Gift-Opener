@@ -7,6 +7,12 @@ Used heavily on Windows 7
 
 Tested a bit on Windows 8, though it seems to not always interpret clicks in 8 (This might be the laptop I was using)
 
-# Compile Notes
-Include "System.Drawing" and "System.Windows.Forms"
-Also includes optional icon
+# Compile Notes - For Console Version
+Create Visual Studio (2013) C# Console Program
+Add both files
+Include "System.Drawing" and "System.Windows.Forms" from the resources folder
+Also include optional icon
+
+#Compile Notes - For Graphic Version
+Create Visual Studio (2013) C# Form Program
+Add all files
