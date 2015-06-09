@@ -7,8 +7,8 @@
  * 
  * 
  * Version History:
- * v0.9 on 5/19/2015 : A lesser version of the console program (notibly missing the auto find points function), but it works
- * 
+ * v0.9 on 5/19/2015 : A lesser version of the console program (notably missing the auto find points function), but it works
+ * v0.9.1 on 6/8/2015 : Update TabIndexs, make the time NUD allow decimal places
  * Split from Console version 2.1
  * --------------------------------------------------------------------------------------------------------------------------------------*/
 using System;
