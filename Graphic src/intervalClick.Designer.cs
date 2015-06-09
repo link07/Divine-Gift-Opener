@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(intervalClick));
             this.btnOnOff = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@
             this.btnOnOff.Location = new System.Drawing.Point(266, 58);
             this.btnOnOff.Name = "btnOnOff";
             this.btnOnOff.Size = new System.Drawing.Size(75, 23);
-            this.btnOnOff.TabIndex = 0;
+            this.btnOnOff.TabIndex = 6;
             this.btnOnOff.Text = "Start";
             this.btnOnOff.UseVisualStyleBackColor = true;
             this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
@@ -94,7 +95,7 @@
             -2147483648});
             this.nudX.Name = "nudX";
             this.nudX.Size = new System.Drawing.Size(120, 20);
-            this.nudX.TabIndex = 8;
+            this.nudX.TabIndex = 1;
             this.nudX.Value = new decimal(new int[] {
             28,
             0,
@@ -116,7 +117,7 @@
             -2147483648});
             this.nudY.Name = "nudY";
             this.nudY.Size = new System.Drawing.Size(120, 20);
-            this.nudY.TabIndex = 9;
+            this.nudY.TabIndex = 2;
             this.nudY.Value = new decimal(new int[] {
             984,
             0,
@@ -131,7 +132,7 @@
             this.cbLeft.Location = new System.Drawing.Point(271, 7);
             this.cbLeft.Name = "cbLeft";
             this.cbLeft.Size = new System.Drawing.Size(70, 17);
-            this.cbLeft.TabIndex = 10;
+            this.cbLeft.TabIndex = 4;
             this.cbLeft.Text = "Left Click";
             this.cbLeft.UseVisualStyleBackColor = true;
             // 
@@ -141,12 +142,13 @@
             this.cbRight.Location = new System.Drawing.Point(271, 30);
             this.cbRight.Name = "cbRight";
             this.cbRight.Size = new System.Drawing.Size(77, 17);
-            this.cbRight.TabIndex = 11;
+            this.cbRight.TabIndex = 5;
             this.cbRight.Text = "Right Click";
             this.cbRight.UseVisualStyleBackColor = true;
             // 
             // nudTime
             // 
+            this.nudTime.DecimalPlaces = 4;
             this.nudTime.Increment = new decimal(new int[] {
             125,
             0,
@@ -155,7 +157,7 @@
             this.nudTime.Location = new System.Drawing.Point(124, 56);
             this.nudTime.Name = "nudTime";
             this.nudTime.Size = new System.Drawing.Size(120, 20);
-            this.nudTime.TabIndex = 12;
+            this.nudTime.TabIndex = 3;
             this.nudTime.Value = new decimal(new int[] {
             15,
             0,
@@ -186,8 +188,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOnOff);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "intervalClick";
-            this.Text = "Interval Click";
+            this.Text = "Interval Click v0.9.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.intervalClick_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
