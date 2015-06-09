@@ -9,8 +9,7 @@
  * Version History:
  * v0.9 on 5/19/2015 : A lesser version of the console program (notably missing the auto find points function), but it works
  * v0.9.1 on 6/8/2015 : Update TabIndexs, make the time NUD allow decimal places
- *
- * Forked from Interval Click Console Version 2.1
+ * Split from Console version 2.1
  * --------------------------------------------------------------------------------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
