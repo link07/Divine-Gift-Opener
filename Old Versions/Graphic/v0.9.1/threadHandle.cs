@@ -8,7 +8,6 @@
  * 
  * Version History:
  * v1.0 on 5/19/2015 : Split from Interval Click for graphic version
- * v1.1 on 6/11/2015 : class change (threadeHandler to clickThreadHandler) in order to allow future additions
  * --------------------------------------------------------------------------------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
@@ -23,16 +22,9 @@ namespace Interval_Click_Graphic
     /// <summary>
     /// Handles logic for click thread
     /// </summary>
-    public class clickThreadHandler
+    public class threadHandler
     {
-        /// <summary>
-        /// True if click thread is running, false if not 
-        /// </summary>
-        public static bool isRunning = false;
-
-        /// <summary>
-        /// Click thread
-        /// </summary>
+        private bool running = false;
         private Thread clickIntervalThread;
 
         /// <summary>
@@ -49,7 +41,7 @@ namespace Interval_Click_Graphic
 
             // Start Thread
             clickIntervalThread.Start();
-            isRunning = true;
+            running = true;
         }
 
 
@@ -58,15 +50,8 @@ namespace Interval_Click_Graphic
         /// </summary>
         public void exitThread()
         {
-            if (isRunning == true)
-            {
+            if (running)
                 clickIntervalThread.Abort();
-
-                isRunning = false;
-
-                windowsClick.TimeSinceClick = 0;
-
-            }
         }
     }
 }
