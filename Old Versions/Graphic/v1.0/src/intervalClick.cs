@@ -10,7 +10,6 @@
  * v0.9 on 5/19/2015 : A lesser version of the console program (notably missing the auto find points function), but it works
  * v0.9.1 on 6/8/2015 : Update TabIndexs, make the time NUD allow decimal places
  * v1.0 on 6/11/2015 : Add current XY display, add time since last click, basically feature equal to the console version now!
- * v1.1 on 6/11/2015 : Add option to enable / disable double click, cleanup form layout 
  * 
  * 
  * Split from Console version 2.1
@@ -73,7 +72,7 @@ namespace Interval_Click_Graphic
                 }
 
                 // Start click and time since click threads
-                clickThread.startThread(Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value), button, Convert.ToDouble(nudTime.Value), cbDouble.Checked);
+                clickThread.startThread(Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value), button, Convert.ToDouble(nudTime.Value));
                 sinceClickThread = new Thread(() => updateTimeSinceClickLabel());
 
                 // Start Click Thread
@@ -188,11 +187,6 @@ namespace Interval_Click_Graphic
 
                 Thread.Sleep(100);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("One click to enter window, one click to click element in window", "Why Double Click?");
         }
     }
 }

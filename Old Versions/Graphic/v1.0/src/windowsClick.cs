@@ -10,10 +10,8 @@
  * v1.0 on 5/19/2015 : Split from my "Open Divine Gifts" program, which was then renamed to "Interval Click"
  * v1.1 on 5/19/2015 : Changed slightly for graphic version of Interval Click     
  * v1.2 on 6/11/2015 : Changed Sleep to be an incremental variable to enable displaying time until next click
- * v1.3 on 6/11/2015 : Reposition mouse between double clicks, allow left and right click togehter, instead of one or the other
- *                      The function was already there, but because it was an else if instead of an if, it was disabled
  * 
- * Compile Note: Requires adding "System.Drawing" and "System.Windows.Forms" to resources if not already present
+ * Compile Note: Requires adding "System.Drawing" and "System.Windows.Forms" to resources
  * --------------------------------------------------------------------------------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
@@ -54,11 +52,11 @@ namespace Interval_Click_Graphic
         /// <param name="yPos">Where to click</param>
         /// <param name="button">Which button to click (0 for left, 1 for right)</param>
         /// <param name="interval">How often in minutes to click</param>
-        public static void clickInterval(int xPos, int yPos, int button, double interval, bool doubleClick)
+        public static void clickInterval(int xPos, int yPos, int button, double interval)
         {
             while (true)
             {
-                click(xPos, yPos, button, doubleClick);
+                click(xPos, yPos, button);
 
                 while (TimeSinceClick < interval)
                 {
@@ -108,7 +106,7 @@ namespace Interval_Click_Graphic
         /// <param name="x">Position to move x part of cursor to</param>
         /// <param name="y">Position to move y part of cursor to</param>
         /// <param name="button">0 or 1 or 3, for left or right, or both</param>
-        public static void click(int x, int y, int button, bool doubleClick)
+        public static void click(int x, int y, int button)
         {
             // Currently, as a test, it double clicks, as many applications seem to not accept a single click (and on a Windows 8 laptop I have, it doesn't even accept this double click)
             // using windows normal double click timeframe (500 ms), minus four ms (from http://ux.stackexchange.com/questions/40364/what-is-the-expected-timeframe-of-a-double-click)
@@ -118,30 +116,18 @@ namespace Interval_Click_Graphic
                 mouse_event((int)(MouseEventFlags.LEFTDOWN), 0, 0, 0, 0);
                 Thread.Sleep(248);
                 mouse_event((int)(MouseEventFlags.LEFTUP), 0, 0, 0, 0);
-
-                if (doubleClick)
-                {
-                    Cursor.Position = new Point(x, y);
-
-                    mouse_event((int)(MouseEventFlags.LEFTDOWN), 0, 0, 0, 0);
-                    Thread.Sleep(248);
-                    mouse_event((int)(MouseEventFlags.LEFTUP), 0, 0, 0, 0);
-                }
+                mouse_event((int)(MouseEventFlags.LEFTDOWN), 0, 0, 0, 0);
+                Thread.Sleep(248);
+                mouse_event((int)(MouseEventFlags.LEFTUP), 0, 0, 0, 0);
             }
-            if (button == 1 || button == 3)
+            else if (button == 1 || button == 3)
             {
                 mouse_event((int)(MouseEventFlags.RIGHTDOWN), 0, 0, 0, 0);
                 Thread.Sleep(248);
                 mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
-
-                if (doubleClick)
-                {
-                    Cursor.Position = new Point(x, y);
-
-                    mouse_event((int)(MouseEventFlags.RIGHTDOWN), 0, 0, 0, 0);
-                    Thread.Sleep(248);
-                    mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
-                }
+                mouse_event((int)(MouseEventFlags.RIGHTDOWN), 0, 0, 0, 0);
+                Thread.Sleep(248);
+                mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
             }
         }
     }
