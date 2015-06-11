@@ -6,11 +6,10 @@
  * Some windows click handling, primarely where the mouse is, and allowing it be moved and clicked elsewhere
  * 
  * 
- * Version History
+ * Version History:
+ * v1.1 on 5/19/2015 : Changed slightly for graphic version of Interval Click
  * v1.0 on 5/19/2015 : Split from my "Open Divine Gifts" program, which was then renamed to "Interval Click"
- * v1.1 on 5/19/2015 : Changed slightly for graphic version of Interval Click     
- * v1.2 on 6/11/2015 : Changed Sleep to be an incremental variable to enable displaying time until next click
- * 
+ *                  
  * Compile Note: Requires adding "System.Drawing" and "System.Windows.Forms" to resources
  * --------------------------------------------------------------------------------------------------------------------------------------*/
 using System;
@@ -30,8 +29,6 @@ namespace Interval_Click_Graphic
     /// </summary>
     class windowsClick
     {
-        public static double TimeSinceClick = 0;
-
         /// <summary>
         /// Reports current mouse location back to caller
         /// </summary>
@@ -56,15 +53,12 @@ namespace Interval_Click_Graphic
         {
             while (true)
             {
+                // Attempt to open gift every 15 mins
+                //Cursor.Position = new Point(xPos, yPos);
                 click(xPos, yPos, button);
 
-                while (TimeSinceClick < interval)
-                {
-                    Thread.Sleep((int)(100));
-                    TimeSinceClick += .0016666; // 1000 ms per second, 60 seconds per minute (100 ms is roughly .0016666)
-                }
-
-                TimeSinceClick = 0;
+                // Sleep for 15 Mins
+                Thread.Sleep((int)(interval * 60 * 1000)); // 900,000 ms = 900 sec = 15 mins
             }
         }
 

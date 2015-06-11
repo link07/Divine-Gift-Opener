@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(intervalClick));
             this.btnOnOff = new System.Windows.Forms.Button();
-            this.lblX = new System.Windows.Forms.Label();
-            this.lblY = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nudX = new System.Windows.Forms.NumericUpDown();
             this.nudY = new System.Windows.Forms.NumericUpDown();
@@ -39,10 +39,6 @@
             this.cbRight = new System.Windows.Forms.CheckBox();
             this.nudTime = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblTimeSinceClick = new System.Windows.Forms.Label();
-            this.btnFindXY = new System.Windows.Forms.Button();
-            this.lblCurrX = new System.Windows.Forms.Label();
-            this.lblCurrY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
@@ -58,23 +54,23 @@
             this.btnOnOff.UseVisualStyleBackColor = true;
             this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
             // 
-            // lblX
+            // label1
             // 
-            this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(60, 11);
-            this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(58, 13);
-            this.lblX.TabIndex = 5;
-            this.lblX.Text = "X-Location";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(60, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "X-Location";
             // 
-            // lblY
+            // label2
             // 
-            this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(60, 35);
-            this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(58, 13);
-            this.lblY.TabIndex = 6;
-            this.lblY.Text = "Y-Location";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Y-Location";
             // 
             // label4
             // 
@@ -177,52 +173,11 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Mins between repeat";
             // 
-            // lblTimeSinceClick
-            // 
-            this.lblTimeSinceClick.AutoSize = true;
-            this.lblTimeSinceClick.Location = new System.Drawing.Point(12, 79);
-            this.lblTimeSinceClick.Name = "lblTimeSinceClick";
-            this.lblTimeSinceClick.Size = new System.Drawing.Size(115, 13);
-            this.lblTimeSinceClick.TabIndex = 14;
-            this.lblTimeSinceClick.Text = "Time Since Last Click: ";
-            // 
-            // btnFindXY
-            // 
-            this.btnFindXY.Location = new System.Drawing.Point(242, 99);
-            this.btnFindXY.Name = "btnFindXY";
-            this.btnFindXY.Size = new System.Drawing.Size(106, 23);
-            this.btnFindXY.TabIndex = 7;
-            this.btnFindXY.Text = "Start XY Display";
-            this.btnFindXY.UseVisualStyleBackColor = true;
-            this.btnFindXY.Click += new System.EventHandler(this.btnFindXY_Click);
-            // 
-            // lblCurrX
-            // 
-            this.lblCurrX.AutoSize = true;
-            this.lblCurrX.Location = new System.Drawing.Point(59, 104);
-            this.lblCurrX.Name = "lblCurrX";
-            this.lblCurrX.Size = new System.Drawing.Size(54, 13);
-            this.lblCurrX.TabIndex = 16;
-            this.lblCurrX.Text = "Current X:";
-            // 
-            // lblCurrY
-            // 
-            this.lblCurrY.AutoSize = true;
-            this.lblCurrY.Location = new System.Drawing.Point(154, 104);
-            this.lblCurrY.Name = "lblCurrY";
-            this.lblCurrY.Size = new System.Drawing.Size(57, 13);
-            this.lblCurrY.TabIndex = 17;
-            this.lblCurrY.Text = "Current Y: ";
-            // 
             // intervalClick
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 130);
-            this.Controls.Add(this.lblCurrY);
-            this.Controls.Add(this.lblCurrX);
-            this.Controls.Add(this.btnFindXY);
-            this.Controls.Add(this.lblTimeSinceClick);
+            this.ClientSize = new System.Drawing.Size(355, 103);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudTime);
             this.Controls.Add(this.cbRight);
@@ -230,8 +185,8 @@
             this.Controls.Add(this.nudY);
             this.Controls.Add(this.nudX);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblY);
-            this.Controls.Add(this.lblX);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOnOff);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "intervalClick";
@@ -248,8 +203,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnOnOff;
-        private System.Windows.Forms.Label lblX;
-        private System.Windows.Forms.Label lblY;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudX;
         private System.Windows.Forms.NumericUpDown nudY;
@@ -257,10 +212,6 @@
         private System.Windows.Forms.CheckBox cbRight;
         private System.Windows.Forms.NumericUpDown nudTime;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTimeSinceClick;
-        private System.Windows.Forms.Button btnFindXY;
-        private System.Windows.Forms.Label lblCurrX;
-        private System.Windows.Forms.Label lblCurrY;
 
 
     }
