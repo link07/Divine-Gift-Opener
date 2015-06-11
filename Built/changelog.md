@@ -9,3 +9,5 @@ Interval Click Graphic ~~v1.0~~ v0.9: First Released Build
 Interval Click Graphic v0.9.1: Build v0.9.1, made icons consistent
 
 Interval Click Graphic v1.0: Build v1.0
+
+Interval Click Graphic v1.1: Build v1.1
