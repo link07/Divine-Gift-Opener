@@ -235,7 +235,7 @@
             this.Controls.Add(this.btnOnOff);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "intervalClick";
-            this.Text = "Interval Click by Tyler / Zafar v0.9.1";
+            this.Text = "Interval Click by Tyler / Zafar v1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.intervalClick_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
