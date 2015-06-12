@@ -11,7 +11,7 @@
  * v0.9.1 on 6/8/2015 : Update TabIndexs, make the time NUD allow decimal places
  * v1.0 on 6/11/2015 : Add current XY display, add time since last click, basically feature equal to the console version now!
  * v1.1 on 6/11/2015 : Add option to enable / disable double click, cleanup form layout 
- * v1.2 on 6/11/2015 : Update to include new windowsClick.cs stuff
+ * 
  * 
  * Split from Console version 2.1
  * 
@@ -58,8 +58,6 @@ namespace Interval_Click_Graphic
         private void btnOnOff_Click(object sender, EventArgs e)
         {
             int button = 0;
-            Point p = new Point(Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value));
-
             if (btnOnOff.Text == "Start")
             {
                 if (cbLeft.Checked == true && cbRight.Checked == true)
@@ -74,9 +72,8 @@ namespace Interval_Click_Graphic
                     button = 0;
                 }
 
-
                 // Start click and time since click threads
-                clickThread.startThread(p, button, Convert.ToDouble(nudTime.Value), cbDouble.Checked);
+                clickThread.startThread(Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value), button, Convert.ToDouble(nudTime.Value), cbDouble.Checked);
                 sinceClickThread = new Thread(() => updateTimeSinceClickLabel());
 
                 // Start Click Thread
@@ -118,7 +115,7 @@ namespace Interval_Click_Graphic
                 xyThreadIsRunning = true;
 
                 btnFindXY.Text = "Stop XY Display";
-                
+
             }
             else if (btnFindXY.Text == "Stop XY Display")
             {
@@ -161,13 +158,13 @@ namespace Interval_Click_Graphic
         /// </summary>
         public void displayXY()
         {
-            Point p = new Point();
+            int x = 0, y = 0;
 
             while (true)
             {
-                windowsClick.currentMouseLocation(ref p);
-                lblCurrX.Invoke((MethodInvoker)(() => lblCurrX.Text = "Current X: " + Convert.ToString(p.X)));
-                lblCurrY.Invoke((MethodInvoker)(() => lblCurrY.Text = "Current Y: " + Convert.ToString(p.Y)));
+                windowsClick.currentMouseLocation(ref x, ref y);
+                lblCurrX.Invoke((MethodInvoker)(() => lblCurrX.Text = "Current X: " + Convert.ToString(x)));
+                lblCurrY.Invoke((MethodInvoker)(() => lblCurrY.Text = "Current Y: " + Convert.ToString(y)));
                 Thread.Sleep(100);
             }
         }
@@ -193,9 +190,9 @@ namespace Interval_Click_Graphic
             }
         }
 
-        private void btnDoubleClick_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Double Click is checked by default because most MMO's or other games require one click to enter the 3D window, and one click to interact with the game.\n\nMost non-3D programs, such as Chrome, and Windows, do not require this.", "Why is Double Click Checked by Default?");
+            MessageBox.Show("One click to enter window, one click to click element in window", "Why Double Click?");
         }
     }
 }

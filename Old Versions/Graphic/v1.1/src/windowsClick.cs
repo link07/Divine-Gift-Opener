@@ -12,7 +12,6 @@
  * v1.2 on 6/11/2015 : Changed Sleep to be an incremental variable to enable displaying time until next click
  * v1.3 on 6/11/2015 : Reposition mouse between double clicks, allow left and right click togehter, instead of one or the other
  *                      The function was already there, but because it was an else if instead of an if, it was disabled
- * v1.4 on 6/11/2015 : Heavy rewrite of how clicking works; instead of click up and click down as one event, it calls it as one now, change x/y handling to Point instead of individual int's
  * 
  * Compile Note: Requires adding "System.Drawing" and "System.Windows.Forms" to resources if not already present
  * --------------------------------------------------------------------------------------------------------------------------------------*/
@@ -40,10 +39,12 @@ namespace Interval_Click_Graphic
         /// </summary>
         /// <param name="x">value of cursor's x at time of input</param>
         /// <param name="y">value of cursor's y at time of input</param>
-        public static void currentMouseLocation(ref Point p)
+        public static void currentMouseLocation(ref int x, ref int y)
         {
             // Current Mouse Loc
-            p = Cursor.Position;
+            x = Cursor.Position.X;
+            y = Cursor.Position.Y;
+
         }
 
         /// <summary>
@@ -53,11 +54,11 @@ namespace Interval_Click_Graphic
         /// <param name="yPos">Where to click</param>
         /// <param name="button">Which button to click (0 for left, 1 for right)</param>
         /// <param name="interval">How often in minutes to click</param>
-        public static void clickInterval(Point p, int button, double interval, bool doubleClick)
+        public static void clickInterval(int xPos, int yPos, int button, double interval, bool doubleClick)
         {
             while (true)
             {
-                click(p, button, doubleClick);
+                click(xPos, yPos, button, doubleClick);
 
                 while (TimeSinceClick < interval)
                 {
@@ -74,31 +75,29 @@ namespace Interval_Click_Graphic
         /// <summary>
         ///  Imports required DLL and allows you to simulate mouse buttons
         /// </summary>
-        /// <param name="dwFlags">Flags to send</param>
-        /// <param name="dx">If ABSOLUTE or MOVE flags are set, move mouse to said x position; doesn't seem to work correctly though</param>
-        /// <param name="dy">If ABSOLUTE or MOVE flags are set, move mouse to said y position; doesn't seem to work correctly though</param>
-        /// <param name="dwData">returns info based on what flag's provided, see https://msdn.microsoft.com/en-us/library/windows/desktop/ms646260(v=vs.85).aspx </param>
-        /// <param name="dwExtraInfo">Extra info, normally unneeded</param>
+        /// <param name="dwFlags">Mouse button to press</param>
+        /// <param name="dx">idk, possibly X to click on, but I just move there before hand</param>
+        /// <param name="dy">idk, possibly Y to click on, but I just move there before hand</param>
+        /// <param name="dwData">idk</param>
+        /// <param name="dwExtraInfo">idk</param>
         [DllImport("user32.dll")]
-        static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
+        static extern void mouse_event(int dwFlags, int dx, int dy,
+                              int dwData, int dwExtraInfo);
 
         /// <summary>
-        ///  Flags for mouse_event
+        ///  Values required to be sent to simulate mouse buttons
         /// </summary>
-        class mouseeventflags
+        [Flags]
+        public enum MouseEventFlags
         {
-            public const uint ABSOLUTE = 0x8000,
-            LEFTDOWN = 0x0002,
-            LEFTUP = 0x0004,
-            MIDDLEDOWN = 0x0020,
-            MIDDLEUP = 0x0040,
-            MOVE = 0x0001,
-            RIGHTDOWN = 0x0008,
-            RIGHTUP = 0x0010,
-            XDOWN = 0x0080,
-            XUP = 0x0100,
-            WHEEL = 0x0800,
-            HWHEEL = 0x01000;
+            LEFTDOWN = 0x00000002,
+            LEFTUP = 0x00000004,
+            MIDDLEDOWN = 0x00000020,
+            MIDDLEUP = 0x00000040,
+            MOVE = 0x00000001,
+            ABSOLUTE = 0x00008000,
+            RIGHTDOWN = 0x00000008,
+            RIGHTUP = 0x00000010
         }
         #endregion
 
@@ -109,32 +108,39 @@ namespace Interval_Click_Graphic
         /// <param name="x">Position to move x part of cursor to</param>
         /// <param name="y">Position to move y part of cursor to</param>
         /// <param name="button">0 or 1 or 3, for left or right, or both</param>
-        public static void click(Point p, int button, bool doubleClick)
+        public static void click(int x, int y, int button, bool doubleClick)
         {
-            
-            // Clicks once to enter window, once to click for real; should do it fast enough to not be interpreted as a double click
-            // using windows normal double click timeframe (500 ms) (from http://ux.stackexchange.com/questions/40364/what-is-the-expected-timeframe-of-a-double-click)
-            Cursor.Position = p;
+            // Currently, as a test, it double clicks, as many applications seem to not accept a single click (and on a Windows 8 laptop I have, it doesn't even accept this double click)
+            // using windows normal double click timeframe (500 ms), minus four ms (from http://ux.stackexchange.com/questions/40364/what-is-the-expected-timeframe-of-a-double-click)
+            Cursor.Position = new Point(x, y);
             if (button == 0 || button == 3)
             {
-                mouse_event(mouseeventflags.LEFTDOWN | mouseeventflags.LEFTUP, 0, 0, 0, 0);
+                mouse_event((int)(MouseEventFlags.LEFTDOWN), 0, 0, 0, 0);
+                Thread.Sleep(248);
+                mouse_event((int)(MouseEventFlags.LEFTUP), 0, 0, 0, 0);
 
                 if (doubleClick)
                 {
-                    Thread.Sleep(500);
-                    Cursor.Position = p;
-                    mouse_event(mouseeventflags.LEFTDOWN | mouseeventflags.LEFTUP, 0, 0, 0, 0);
+                    Cursor.Position = new Point(x, y);
+
+                    mouse_event((int)(MouseEventFlags.LEFTDOWN), 0, 0, 0, 0);
+                    Thread.Sleep(248);
+                    mouse_event((int)(MouseEventFlags.LEFTUP), 0, 0, 0, 0);
                 }
             }
             if (button == 1 || button == 3)
             {
-                mouse_event(mouseeventflags.RIGHTDOWN | mouseeventflags.RIGHTUP, 0, 0, 0, 0);
+                mouse_event((int)(MouseEventFlags.RIGHTDOWN), 0, 0, 0, 0);
+                Thread.Sleep(248);
+                mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
 
                 if (doubleClick)
                 {
-                    Thread.Sleep(500);
-                    Cursor.Position = p;
-                    mouse_event(mouseeventflags.RIGHTDOWN | mouseeventflags.RIGHTUP, 0, 0, 0, 0);
+                    Cursor.Position = new Point(x, y);
+
+                    mouse_event((int)(MouseEventFlags.RIGHTDOWN), 0, 0, 0, 0);
+                    Thread.Sleep(248);
+                    mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
                 }
             }
         }
