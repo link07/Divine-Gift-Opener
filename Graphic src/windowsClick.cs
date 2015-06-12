@@ -121,7 +121,7 @@ namespace Interval_Click_Graphic
 
                 if (doubleClick)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(100);
                     Cursor.Position = p;
                     mouse_event(mouseeventflags.LEFTDOWN | mouseeventflags.LEFTUP, 0, 0, 0, 0);
                 }
@@ -132,7 +132,7 @@ namespace Interval_Click_Graphic
 
                 if (doubleClick)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(100);
                     Cursor.Position = p;
                     mouse_event(mouseeventflags.RIGHTDOWN | mouseeventflags.RIGHTUP, 0, 0, 0, 0);
                 }
