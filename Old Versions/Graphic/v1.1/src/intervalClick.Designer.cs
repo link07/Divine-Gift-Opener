@@ -44,7 +44,7 @@
             this.lblCurrX = new System.Windows.Forms.Label();
             this.lblCurrY = new System.Windows.Forms.Label();
             this.cbDouble = new System.Windows.Forms.CheckBox();
-            this.btnDoubleClick = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // btnOnOff
             // 
-            this.btnOnOff.Location = new System.Drawing.Point(247, 74);
+            this.btnOnOff.Location = new System.Drawing.Point(228, 69);
             this.btnOnOff.Name = "btnOnOff";
             this.btnOnOff.Size = new System.Drawing.Size(75, 23);
             this.btnOnOff.TabIndex = 8;
@@ -88,7 +88,6 @@
             // 
             // nudX
             // 
-            this.nudX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.nudX.Location = new System.Drawing.Point(76, 3);
             this.nudX.Maximum = new decimal(new int[] {
             10000000,
@@ -191,7 +190,7 @@
             // 
             // btnFindXY
             // 
-            this.btnFindXY.Location = new System.Drawing.Point(216, 98);
+            this.btnFindXY.Location = new System.Drawing.Point(197, 98);
             this.btnFindXY.Name = "btnFindXY";
             this.btnFindXY.Size = new System.Drawing.Size(106, 23);
             this.btnFindXY.TabIndex = 9;
@@ -211,7 +210,7 @@
             // lblCurrY
             // 
             this.lblCurrY.AutoSize = true;
-            this.lblCurrY.Location = new System.Drawing.Point(121, 103);
+            this.lblCurrY.Location = new System.Drawing.Point(95, 103);
             this.lblCurrY.Name = "lblCurrY";
             this.lblCurrY.Size = new System.Drawing.Size(57, 13);
             this.lblCurrY.TabIndex = 17;
@@ -229,22 +228,22 @@
             this.cbDouble.Text = "Double Click";
             this.cbDouble.UseVisualStyleBackColor = true;
             // 
-            // btnDoubleClick
+            // button1
             // 
-            this.btnDoubleClick.Location = new System.Drawing.Point(309, 44);
-            this.btnDoubleClick.Name = "btnDoubleClick";
-            this.btnDoubleClick.Size = new System.Drawing.Size(19, 23);
-            this.btnDoubleClick.TabIndex = 18;
-            this.btnDoubleClick.Text = "?";
-            this.btnDoubleClick.UseVisualStyleBackColor = true;
-            this.btnDoubleClick.Click += new System.EventHandler(this.btnDoubleClick_Click);
+            this.button1.Location = new System.Drawing.Point(311, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(16, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "?";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // intervalClick
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 126);
-            this.Controls.Add(this.btnDoubleClick);
+            this.ClientSize = new System.Drawing.Size(354, 126);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbDouble);
             this.Controls.Add(this.lblCurrY);
             this.Controls.Add(this.lblCurrX);
@@ -261,10 +260,8 @@
             this.Controls.Add(this.lblX);
             this.Controls.Add(this.btnOnOff);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "intervalClick";
-            this.Text = "Interval Click by Tyler / Zafar v1.2";
+            this.Text = "Interval Click by Tyler / Zafar v1.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.intervalClick_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
@@ -291,7 +288,7 @@
         private System.Windows.Forms.Label lblCurrX;
         private System.Windows.Forms.Label lblCurrY;
         private System.Windows.Forms.CheckBox cbDouble;
-        private System.Windows.Forms.Button btnDoubleClick;
+        private System.Windows.Forms.Button button1;
 
 
     }
