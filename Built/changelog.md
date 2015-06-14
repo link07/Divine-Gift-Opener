@@ -3,6 +3,8 @@
 # Console Version
 Interval Click v2.1: First Released Build
 
+Interval Click Graphic v2.1B2: New Icon! No longer just using the Archeage one, I made my own crappy Photoshop one!
+
 #Graphic Version
 Interval Click Graphic ~~v1.0~~ v0.9: First Released Build
 
@@ -13,3 +15,5 @@ Interval Click Graphic v1.0: Built v1.0
 Interval Click Graphic v1.1: Built v1.1
 
 Interval Click Graphic v1.2: Built v1.2
+
+Interval Click Graphic v1.2B2: New Icon! No longer just using the Archeage one, I made my own crappy Photoshop one!
