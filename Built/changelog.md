@@ -1,10 +1,5 @@
 # Change that apply to the build only are shown here, for normal change-log, view the source code.
 
-# Console Version
-Interval Click v2.1: First Released Build
-
-Interval Click Graphic v2.1B2: New Icon! No longer just using the Archeage one, I made my own crappy Photoshop one!
-
 #Graphic Version
 Interval Click Graphic ~~v1.0~~ v0.9: First Released Build
 

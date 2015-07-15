@@ -10,14 +10,6 @@ Used heavily on Windows 7
 
 Tested a bit on Windows 8.  Back in v1.1 of the Console version, it seemed to not always interpret the clicks in windows 8.  I believe this was just the laptop I was using to test it, and have not tested it since that early version.
 
-# Compile Notes - For Console Version
-Create Visual Studio (2013) C# Console Program
-Add both files
-
-Include "System.Drawing" and "System.Windows.Forms" from the resources folder
-
-Also include optional icon
-
 #Compile Notes - For Graphic Version
 Create Visual Studio (2013) C# Form Program
 
