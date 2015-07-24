@@ -45,20 +45,14 @@
             this.lblCurrY = new System.Windows.Forms.Label();
             this.cbDouble = new System.Windows.Forms.CheckBox();
             this.btnDoubleClick = new System.Windows.Forms.Button();
-            this.cbCopyXY = new System.Windows.Forms.CheckBox();
-            this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.tsHelp = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsmiHotkeys = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
-            this.tsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOnOff
             // 
-            this.btnOnOff.Location = new System.Drawing.Point(247, 99);
+            this.btnOnOff.Location = new System.Drawing.Point(247, 74);
             this.btnOnOff.Name = "btnOnOff";
             this.btnOnOff.Size = new System.Drawing.Size(75, 23);
             this.btnOnOff.TabIndex = 8;
@@ -69,7 +63,7 @@
             // lblX
             // 
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(12, 30);
+            this.lblX.Location = new System.Drawing.Point(12, 5);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(58, 13);
             this.lblX.TabIndex = 5;
@@ -78,7 +72,7 @@
             // lblY
             // 
             this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(12, 55);
+            this.lblY.Location = new System.Drawing.Point(12, 30);
             this.lblY.Name = "lblY";
             this.lblY.Size = new System.Drawing.Size(58, 13);
             this.lblY.TabIndex = 6;
@@ -87,7 +81,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 83);
+            this.label4.Location = new System.Drawing.Point(12, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 7;
@@ -95,7 +89,7 @@
             // nudX
             // 
             this.nudX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nudX.Location = new System.Drawing.Point(76, 28);
+            this.nudX.Location = new System.Drawing.Point(76, 3);
             this.nudX.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -117,7 +111,7 @@
             // 
             // nudY
             // 
-            this.nudY.Location = new System.Drawing.Point(76, 53);
+            this.nudY.Location = new System.Drawing.Point(76, 28);
             this.nudY.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -142,7 +136,7 @@
             this.cbLeft.AutoSize = true;
             this.cbLeft.Checked = true;
             this.cbLeft.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbLeft.Location = new System.Drawing.Point(226, 29);
+            this.cbLeft.Location = new System.Drawing.Point(226, 4);
             this.cbLeft.Name = "cbLeft";
             this.cbLeft.Size = new System.Drawing.Size(70, 17);
             this.cbLeft.TabIndex = 4;
@@ -152,7 +146,7 @@
             // cbRight
             // 
             this.cbRight.AutoSize = true;
-            this.cbRight.Location = new System.Drawing.Point(226, 51);
+            this.cbRight.Location = new System.Drawing.Point(226, 26);
             this.cbRight.Name = "cbRight";
             this.cbRight.Size = new System.Drawing.Size(77, 17);
             this.cbRight.TabIndex = 5;
@@ -167,7 +161,7 @@
             0,
             0,
             196608});
-            this.nudTime.Location = new System.Drawing.Point(124, 75);
+            this.nudTime.Location = new System.Drawing.Point(124, 50);
             this.nudTime.Name = "nudTime";
             this.nudTime.Size = new System.Drawing.Size(82, 20);
             this.nudTime.TabIndex = 3;
@@ -180,7 +174,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 77);
+            this.label3.Location = new System.Drawing.Point(12, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 13;
@@ -189,7 +183,7 @@
             // lblTimeSinceClick
             // 
             this.lblTimeSinceClick.AutoSize = true;
-            this.lblTimeSinceClick.Location = new System.Drawing.Point(12, 99);
+            this.lblTimeSinceClick.Location = new System.Drawing.Point(12, 74);
             this.lblTimeSinceClick.Name = "lblTimeSinceClick";
             this.lblTimeSinceClick.Size = new System.Drawing.Size(115, 13);
             this.lblTimeSinceClick.TabIndex = 14;
@@ -197,7 +191,7 @@
             // 
             // btnFindXY
             // 
-            this.btnFindXY.Location = new System.Drawing.Point(216, 123);
+            this.btnFindXY.Location = new System.Drawing.Point(216, 98);
             this.btnFindXY.Name = "btnFindXY";
             this.btnFindXY.Size = new System.Drawing.Size(106, 23);
             this.btnFindXY.TabIndex = 9;
@@ -208,7 +202,7 @@
             // lblCurrX
             // 
             this.lblCurrX.AutoSize = true;
-            this.lblCurrX.Location = new System.Drawing.Point(12, 128);
+            this.lblCurrX.Location = new System.Drawing.Point(12, 103);
             this.lblCurrX.Name = "lblCurrX";
             this.lblCurrX.Size = new System.Drawing.Size(54, 13);
             this.lblCurrX.TabIndex = 16;
@@ -217,7 +211,7 @@
             // lblCurrY
             // 
             this.lblCurrY.AutoSize = true;
-            this.lblCurrY.Location = new System.Drawing.Point(121, 128);
+            this.lblCurrY.Location = new System.Drawing.Point(121, 103);
             this.lblCurrY.Name = "lblCurrY";
             this.lblCurrY.Size = new System.Drawing.Size(57, 13);
             this.lblCurrY.TabIndex = 17;
@@ -228,7 +222,7 @@
             this.cbDouble.AutoSize = true;
             this.cbDouble.Checked = true;
             this.cbDouble.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbDouble.Location = new System.Drawing.Point(226, 73);
+            this.cbDouble.Location = new System.Drawing.Point(226, 48);
             this.cbDouble.Name = "cbDouble";
             this.cbDouble.Size = new System.Drawing.Size(86, 17);
             this.cbDouble.TabIndex = 6;
@@ -237,7 +231,7 @@
             // 
             // btnDoubleClick
             // 
-            this.btnDoubleClick.Location = new System.Drawing.Point(309, 69);
+            this.btnDoubleClick.Location = new System.Drawing.Point(309, 44);
             this.btnDoubleClick.Name = "btnDoubleClick";
             this.btnDoubleClick.Size = new System.Drawing.Size(19, 23);
             this.btnDoubleClick.TabIndex = 18;
@@ -245,62 +239,11 @@
             this.btnDoubleClick.UseVisualStyleBackColor = true;
             this.btnDoubleClick.Click += new System.EventHandler(this.btnDoubleClick_Click);
             // 
-            // cbCopyXY
-            // 
-            this.cbCopyXY.AutoSize = true;
-            this.cbCopyXY.Checked = true;
-            this.cbCopyXY.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCopyXY.Location = new System.Drawing.Point(218, 152);
-            this.cbCopyXY.Name = "cbCopyXY";
-            this.cbCopyXY.Size = new System.Drawing.Size(104, 17);
-            this.cbCopyXY.TabIndex = 19;
-            this.cbCopyXY.Text = "Copy Current XY";
-            this.cbCopyXY.UseVisualStyleBackColor = true;
-            // 
-            // tsMenu
-            // 
-            this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsHelp});
-            this.tsMenu.Location = new System.Drawing.Point(0, 0);
-            this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(337, 25);
-            this.tsMenu.TabIndex = 20;
-            this.tsMenu.Text = "toolStrip1";
-            // 
-            // tsHelp
-            // 
-            this.tsHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiHotkeys,
-            this.tsmiAbout});
-            this.tsHelp.Image = ((System.Drawing.Image)(resources.GetObject("tsHelp.Image")));
-            this.tsHelp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsHelp.Name = "tsHelp";
-            this.tsHelp.Size = new System.Drawing.Size(45, 22);
-            this.tsHelp.Text = "Help";
-            // 
-            // tsmiHotkeys
-            // 
-            this.tsmiHotkeys.Name = "tsmiHotkeys";
-            this.tsmiHotkeys.Size = new System.Drawing.Size(117, 22);
-            this.tsmiHotkeys.Text = "Hotkeys";
-            this.tsmiHotkeys.Click += new System.EventHandler(this.tsmiHotkeys_Click);
-            // 
-            // tsmiAbout
-            // 
-            this.tsmiAbout.Name = "tsmiAbout";
-            this.tsmiAbout.Size = new System.Drawing.Size(117, 22);
-            this.tsmiAbout.Text = "About";
-            this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
-            // 
             // intervalClick
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 183);
-            this.Controls.Add(this.tsMenu);
-            this.Controls.Add(this.cbCopyXY);
+            this.ClientSize = new System.Drawing.Size(334, 126);
             this.Controls.Add(this.btnDoubleClick);
             this.Controls.Add(this.cbDouble);
             this.Controls.Add(this.lblCurrY);
@@ -321,13 +264,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "intervalClick";
-            this.Text = "Interval Click by Tyler / Zafar v1.3";
+            this.Text = "Interval Click by Tyler / Zafar v1.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.intervalClick_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).EndInit();
-            this.tsMenu.ResumeLayout(false);
-            this.tsMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,11 +292,6 @@
         private System.Windows.Forms.Label lblCurrY;
         private System.Windows.Forms.CheckBox cbDouble;
         private System.Windows.Forms.Button btnDoubleClick;
-        private System.Windows.Forms.CheckBox cbCopyXY;
-        private System.Windows.Forms.ToolStrip tsMenu;
-        private System.Windows.Forms.ToolStripDropDownButton tsHelp;
-        private System.Windows.Forms.ToolStripMenuItem tsmiHotkeys;
-        private System.Windows.Forms.ToolStripMenuItem tsmiAbout;
 
 
     }

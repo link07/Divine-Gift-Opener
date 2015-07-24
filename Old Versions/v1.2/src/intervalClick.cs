@@ -7,12 +7,13 @@
  * 
  * 
  * Version History:
- * v0.9 on 5/19/2015 : A lesser version of the console program (notably missing the auto find points function), but it works; Split from Console version 2.1
+ * v0.9 on 5/19/2015 : A lesser version of the console program (notably missing the auto find points function), but it works
  * v0.9.1 on 6/8/2015 : Update TabIndexs, make the time NUD allow decimal places
  * v1.0 on 6/11/2015 : Add current XY display, add time since last click, basically feature equal to the console version now!
  * v1.1 on 6/11/2015 : Add option to enable / disable double click, cleanup form layout 
  * v1.2 on 6/11/2015 : Update to include new windowsClick.cs stuff
- * v1.3 on 7/23/2015 : Add hotkeys, add auto copy of lookup to the NUD's, start work on file saves
+ * 
+ * Split from Console version 2.1
  * 
  * Notes:
  * http://stackoverflow.com/a/2172484 Thread-safe label editing
@@ -27,8 +28,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using System.IO;
-using System.Runtime.InteropServices;
 
 namespace Interval_Click_Graphic
 {
@@ -42,8 +41,6 @@ namespace Interval_Click_Graphic
         private Thread sinceClickThread;
         private Thread xyThread;
 
-        hotkey.KeyboardHook lookupHotkey = new hotkey.KeyboardHook();
-        hotkey.KeyboardHook clickerHotkey = new hotkey.KeyboardHook();
         private bool xyThreadIsRunning = false, sinceClickThreadIsRunning = false;
 
 
@@ -53,68 +50,12 @@ namespace Interval_Click_Graphic
         public intervalClick()
         {
             InitializeComponent();
-
-            // register event keys
-            lookupHotkey.KeyPressed += new EventHandler<hotkey.KeyPressedEventArgs>(lookupHotkey_KeyPressed);
-            clickerHotkey.KeyPressed += new EventHandler<hotkey.KeyPressedEventArgs>(clickerHotkey_KeyPressed);
-
-            // register control+alt+f12 combo as a hotkey
-            try
-            {
-                lookupHotkey.RegisterHotKey(hotkey.ModifierKeys.Control, Keys.F);
-                clickerHotkey.RegisterHotKey(hotkey.ModifierKeys.Control, Keys.L);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Hotkeys cannot be registered, close out of any other program that uses the global hotkeys Control+F or Control+L and then restartthe program", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
-        void lookupHotkey_KeyPressed(object sender, hotkey.KeyPressedEventArgs e)
-        {
-            lookupSwitch();
-        }
-
-        void lookupSwitch()
-        {
-            Point p = new Point();
-
-            if (btnFindXY.Text == "Start XY Display")
-            {
-                // Create thread
-                xyThread = new Thread(() => displayXY());
-
-                // Start Thread
-                xyThread.Start();
-                xyThreadIsRunning = true;
-
-                btnFindXY.Text = "Stop XY Display";
-
-            }
-            else if (btnFindXY.Text == "Stop XY Display")
-            {
-                if (xyThreadIsRunning)
-                {
-                    if (cbCopyXY.Checked == true)
-                    {
-                        windowsClick.currentMouseLocation(ref p);
-                        nudX.Value = p.X;
-                        nudY.Value = p.Y;
-                    }
-                    xyThread.Abort();
-                    xyThreadIsRunning = false;
-                }
-
-                btnFindXY.Text = "Start XY Display";
-            }
-        }
-
-        void clickerHotkey_KeyPressed(object sender, hotkey.KeyPressedEventArgs e)
-        {
-            clickerSwitch();
-        }
-
-        void clickerSwitch()
+        /// <summary>
+        /// Starts and stops clicking threads and associated things
+        /// </summary>
+        private void btnOnOff_Click(object sender, EventArgs e)
         {
             int button = 0;
             Point p = new Point(Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value));
@@ -160,15 +101,6 @@ namespace Interval_Click_Graphic
                 btnOnOff.Text = "Start";
                 lblTimeSinceClick.Text = "Time Since Last Click: 0 Minutes 0 Seconds";
             }
-
-        }
-
-        /// <summary>
-        /// Starts and stops clicking threads and associated things
-        /// </summary>
-        private void btnOnOff_Click(object sender, EventArgs e)
-        {
-           clickerSwitch();
         }
 
         /// <summary>
@@ -176,7 +108,28 @@ namespace Interval_Click_Graphic
         /// </summary>
         private void btnFindXY_Click(object sender, EventArgs e)
         {
-            lookupSwitch();
+            if (btnFindXY.Text == "Start XY Display")
+            {
+                // Create thread
+                xyThread = new Thread(() => displayXY());
+
+                // Start Thread
+                xyThread.Start();
+                xyThreadIsRunning = true;
+
+                btnFindXY.Text = "Stop XY Display";
+                
+            }
+            else if (btnFindXY.Text == "Stop XY Display")
+            {
+                if (xyThreadIsRunning)
+                {
+                    xyThread.Abort();
+                    xyThreadIsRunning = false;
+                }
+
+                btnFindXY.Text = "Start XY Display";
+            }
         }
 
         /// <summary>
@@ -243,17 +196,6 @@ namespace Interval_Click_Graphic
         private void btnDoubleClick_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Double Click is checked by default because most MMO's or other games require one click to enter the 3D window, and one click to interact with the game.\n\nMost non-3D programs, such as Chrome, and Windows, do not require this.", "Why is Double Click Checked by Default?");
-        }
-
-        private void tsmiHotkeys_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("To Enable / Disable the XY Lookup, press Control + F.\n\n To Enable / Disbale the Clicking, press Control + L", "Hotkeys");
-        }
-
-        private void tsmiAbout_Click(object sender, EventArgs e)
-        {
-            Form frm = new aboutForm.AboutForm();
-            frm.Show();
         }
     }
 }
