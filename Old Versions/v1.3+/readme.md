@@ -1,0 +1,1 @@
+[Visit the Releases Page to View this and all future releases](https://github.com/link07/Interval-Click-Graphic/releases/tag/1.3)
