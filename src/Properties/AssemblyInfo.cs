@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Interval Click Graphic by Tyler / Zafar v1.3")]
-[assembly: AssemblyDescription("Interval Click Graphic by Tyler / Zafar v1.3")]
+[assembly: AssemblyTitle("Interval Click Graphic by Tyler / Zafar v1.3.1")]
+[assembly: AssemblyDescription("Interval Click Graphic by Tyler / Zafar v1.3.1")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Interval Click Graphic v1.3")]
+[assembly: AssemblyProduct("Interval Click Graphic v1.3.1")]
 [assembly: AssemblyCopyright("Copyright ©  Tyler / Zafar 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.1.0")]

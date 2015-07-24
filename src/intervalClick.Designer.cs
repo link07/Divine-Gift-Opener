@@ -321,7 +321,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "intervalClick";
-            this.Text = "Interval Click by Tyler / Zafar v1.3";
+            this.Text = "Interval Click by Tyler / Zafar v1.3.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.intervalClick_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();

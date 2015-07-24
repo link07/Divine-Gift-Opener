@@ -13,6 +13,7 @@
  * v1.1 on 6/11/2015 : Add option to enable / disable double click, cleanup form layout 
  * v1.2 on 6/11/2015 : Update to include new windowsClick.cs stuff
  * v1.3 on 7/23/2015 : Add hotkeys, add auto copy of lookup to the NUD's, start work on file saves
+ * v1.3.1 on 7/23/2015 : Make x/y lookup consistent
  * 
  * Notes:
  * http://stackoverflow.com/a/2172484 Thread-safe label editing
@@ -42,10 +43,14 @@ namespace Interval_Click_Graphic
         private Thread sinceClickThread;
         private Thread xyThread;
 
+        /// <summary>
+        /// hotkey variables
+        /// </summary>
         hotkey.KeyboardHook lookupHotkey = new hotkey.KeyboardHook();
         hotkey.KeyboardHook clickerHotkey = new hotkey.KeyboardHook();
         private bool xyThreadIsRunning = false, sinceClickThreadIsRunning = false;
 
+        Point currentMouseLocation = new Point();
 
         /// <summary>
         /// Load form
@@ -66,7 +71,7 @@ namespace Interval_Click_Graphic
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: Hotkeys cannot be registered, close out of any other program that uses the global hotkeys Control+F or Control+L and then restartthe program", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: Hotkeys cannot be registered, close out of any other program that uses the global hotkeys Control+F or Control+L and then restart the programs" /*\n\nError Info:\n" + ex*/, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -77,8 +82,6 @@ namespace Interval_Click_Graphic
 
         void lookupSwitch()
         {
-            Point p = new Point();
-
             if (btnFindXY.Text == "Start XY Display")
             {
                 // Create thread
@@ -95,14 +98,14 @@ namespace Interval_Click_Graphic
             {
                 if (xyThreadIsRunning)
                 {
-                    if (cbCopyXY.Checked == true)
-                    {
-                        windowsClick.currentMouseLocation(ref p);
-                        nudX.Value = p.X;
-                        nudY.Value = p.Y;
-                    }
                     xyThread.Abort();
                     xyThreadIsRunning = false;
+                    
+                    if (cbCopyXY.Checked == true)
+                    {
+                        nudX.Value = currentMouseLocation.X;
+                        nudY.Value = currentMouseLocation.Y;
+                    }
                 }
 
                 btnFindXY.Text = "Start XY Display";
@@ -208,13 +211,11 @@ namespace Interval_Click_Graphic
         /// </summary>
         public void displayXY()
         {
-            Point p = new Point();
-
             while (true)
             {
-                windowsClick.currentMouseLocation(ref p);
-                lblCurrX.Invoke((MethodInvoker)(() => lblCurrX.Text = "Current X: " + Convert.ToString(p.X)));
-                lblCurrY.Invoke((MethodInvoker)(() => lblCurrY.Text = "Current Y: " + Convert.ToString(p.Y)));
+                windowsClick.currentMouseLocation(ref currentMouseLocation);
+                lblCurrX.Invoke((MethodInvoker)(() => lblCurrX.Text = "Current X: " + Convert.ToString(currentMouseLocation.X)));
+                lblCurrY.Invoke((MethodInvoker)(() => lblCurrY.Text = "Current Y: " + Convert.ToString(currentMouseLocation.Y)));
                 Thread.Sleep(100);
             }
         }

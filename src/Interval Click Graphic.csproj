@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>intervalClickGraphic</RootNamespace>
-    <AssemblyName>Interval Click Graphic v1.3</AssemblyName>
+    <AssemblyName>Interval Click Graphic v1.3.1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
